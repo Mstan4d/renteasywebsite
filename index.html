@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>RentEasy – No Agent Fees. No Stress.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0a0a;
+      color: #ffffff;
+      scroll-behavior: smooth;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Typography */
+    h1, h2, h3 {
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      margin-bottom: 1rem;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #f5b042 0%, #10b981 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* Navigation */
+    .navbar {
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10, 10, 10, 0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 800;
+      text-decoration: none;
+      color: white;
+    }
+
+    .logo span {
+      color: #f5b042;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: #ccc;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #f5b042;
+    }
+
+    .nav-cta {
+      background: #10b981;
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      color: white !important;
+    }
+
+    .menu-icon {
+      display: none;
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: #10b981;
+      color: #0a0a0a;
+    }
+
+    .btn-primary:hover {
+      background: #0d9668;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+  border: 1px solid #10b981;
+  color: #10b981;
+  background: transparent;
+  padding: 0.6rem 1.5rem;
+  border-radius: 40px;
+  text-decoration: none;
+  transition: 0.2s;
+}
+.btn-outline:hover {
+  background: rgba(16,185,129,0.1);
+}
+
+    /* Sections */
+    section {
+      padding: 5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title p {
+      color: #aaa;
+      max-width: 700px;
+      margin: 0.5rem auto 0;
+    }
+
+    /* Cards */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.8rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 24px;
+      padding: 2rem;
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      border-color: #f5b042;
+      transform: translateY(-4px);
+    }
+
+    .card i {
+      font-size: 2.5rem;
+      color: #f5b042;
+      margin-bottom: 1rem;
+    }
+
+    .card h3 {
+      margin-bottom: 0.75rem;
+    }
+
+    /* Commission split */
+    .commission-split {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .split-item {
+      background: #111;
+      padding: 1.5rem 2rem;
+      border-radius: 20px;
+      text-align: center;
+      min-width: 180px;
+      border: 1px solid #222;
+    }
+
+    .split-percent {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #f5b042;
+    }
+
+    /* Team grid */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .team-card {
+      background: #111;
+      border-radius: 20px;
+      padding: 1.5rem;
+      text-align: center;
+      border: 1px solid #222;
+    }
+
+    .team-card h4 {
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .team-card p {
+      color: #aaa;
+      font-size: 0.85rem;
+    }
+
+    /* FAQ */
+    .faq-item {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 16px;
+      margin-bottom: 1rem;
+      padding: 1.2rem 1.5rem;
+    }
+
+    .faq-question {
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: 0.3s;
+      color: #bbb;
+      padding-top: 0;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 200px;
+      padding-top: 1rem;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 3rem 0 2rem;
+      text-align: center;
+      color: #888;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .social-icons a {
+      color: #aaa;
+      margin: 0 0.5rem;
+      font-size: 1.2rem;
+      transition: 0.2s;
+    }
+
+    .social-icons a:hover {
+      color: #f5b042;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #0a0a0a;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        padding: 2rem;
+        gap: 1.5rem;
+        border-bottom: 1px solid #222;
+      }
+      .nav-links.show {
+        display: flex;
+      }
+      .menu-icon {
+        display: block;
+      }
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+    .hero-stats div {
+      text-align: center;
+    }
+    .hero-stats h3 {
+      font-size: 1.8rem;
+      color: #f5b042;
+    }
+    /* Navbar */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(10,10,10,0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding: 1rem 0;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 800;
+  text-decoration: none;
+  color: white;
+}
+.logo span { color: #f5b042; }
+
+.menu-icon {
+  display: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: white;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #ccc;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.2s;
+}
+.nav-links a:hover {
+  color: #f5b042;
+}
+
+.nav-cta {
+  background: #10b981;
+  padding: 0.5rem 1.2rem;
+  border-radius: 40px;
+  color: white !important;
+}
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+}
+.dropdown-toggle {
+  cursor: pointer;
+}
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 12px;
+  min-width: 200px;
+  display: none;
+  z-index: 1001;
+  margin-top: 0.5rem;
+}
+.dropdown-menu a {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #ccc;
+}
+.dropdown-menu a:hover {
+  background: #1a1a1a;
+  color: #f5b042;
+}
+.dropdown-menu.show {
+  display: block;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    width: 80%;
+    height: calc(100vh - 70px);
+    background: #0a0a0a;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem;
+    gap: 1.5rem;
+    transition: left 0.3s ease;
+    border-right: 1px solid #222;
+    z-index: 999;
+  }
+  .nav-links.show {
+    left: 0;
+  }
+  .dropdown {
+    width: 100%;
+  }
+  .dropdown-menu {
+    position: static;
+    width: 100%;
+    margin-top: 0.5rem;
+    background: #1a1a1a;
+    border: none;
+    display: none;
+  }
+  .dropdown-menu.show {
+    display: block;
+  }
+  .dropdown-toggle i {
+    float: right;
+  }
+}
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container nav-container">
+    <a href="#" class="logo">Rent<span>Easy</span></a>
+    
+    <div class="menu-icon" id="menuToggle">
+      <i class="fas fa-bars"></i>
+    </div>
+    
+    <div class="nav-links" id="navLinks">
+      <a href="#problem">Problem</a>
+      <a href="#solution">Solution</a>
+      
+      <!-- Roles Dropdown -->
+      <div class="dropdown">
+        <a href="#" class="dropdown-toggle" id="rolesDropdownBtn">Roles <i class="fas fa-chevron-down"></i></a>
+        <div class="dropdown-menu" id="rolesDropdownMenu">
+          <a href="role-tenant.html">Tenants</a>
+          <a href="role-moving-tenant.html">Moving Tenants</a>
+          <a href="role-manager.html">Managers</a>
+          <a href="role-estate-firm.html">Estate Firms</a>
+          <a href="role-landlord.html">Landlords</a>
+          <a href="role-service-provider.html">Service Providers</a>
+        </div>
+      </div>
+      
+      <a href="#commission">Commission</a>
+      <a href="#trust">Trust</a>
+      <a href="#team">Team</a>
+      <a href="#faq">FAQ</a>
+      <a href="#download" class="nav-cta">Download App</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section style="padding: 4rem 0 2rem;">
+  <div class="container">
+    <div style="text-align: center; max-width: 900px; margin: 0 auto;">
+      <h1>Rent apartments in Nigeria <span class="gradient-text">without agent fees</span></h1>
+      <p style="font-size: 1.2rem; margin: 1.5rem 0; color: #bbb;">RentEasy connects tenants, landlords, and verified managers — transparent 7.5% commission, zero hidden charges.</p>
+      <div class="hero-buttons" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="#" class="btn btn-primary"><i class="fab fa-android"></i> Download APK</a>
+        <a href="#" class="btn btn-outline"><i class="fas fa-globe"></i> Use Web App (PWA)</a>
+      </div>
+      <div class="hero-stats">
+        <div><h3>500+</h3><p>Active Listings</p></div>
+        <div><h3>50+</h3><p>Verified Managers</p></div>
+        <div><h3>Daily</h3><p>New Properties</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Problem -->
+<section id="problem">
+  <div class="container">
+    <div class="section-title">
+      <h2>Nigeria’s rental system <span class="gradient-text">is broken</span></h2>
+      <p>Exploitative agents, fake listings, and zero transparency cost renters billions every year.</p>
+    </div>
+    <div class="card-grid">
+      <div class="card"><i class="fas fa-hand-holding-usd"></i><h3>15–20% agent fees</h3><p>Illegal commissions, hidden charges, and last‑minute price hikes.</p></div>
+      <div class="card"><i class="fas fa-fake-badge"></i><h3>Fake listings</h3><p>Photos never match reality. Many properties don’t even exist.</p></div>
+      <div class="card"><i class="fas fa-eye-slash"></i><h3>No transparency</h3><p>No digital records, no accountability, endless stress.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Solution -->
+<section id="solution">
+  <div class="container" style="text-align: center;">
+    <h2>We replace The traditional with <span class="gradient-text">a fair system</span></h2>
+    <p style="max-width: 700px; margin: 1rem auto;">Verified listings, direct connections, and a fixed 7.5% commission – split to reward everyone who adds value.</p>
+  </div>
+</section>
+
+<section id="roles">
+  <div class="container">
+    <div class="section-title">
+      <h2>Built for <span class="gradient-text">everyone</span> in the rental ecosystem</h2>
+    </div>
+    <div class="card-grid">
+      <a href="role-tenant.html" class="card" style="text-decoration: none; color: inherit; display: block;">
+        <i class="fas fa-user-check"></i>
+        <h3>Tenants</h3>
+        <p>Browse verified listings, chat directly with landlords or managers. Fair 7.5% commission.</p>
+      </a>
+      <a href="role-moving-tenant.html" class="card" style="text-decoration: none; color: inherit; display: block;">
+        <i class="fas fa-truck-moving"></i>
+        <h3>Moving Tenants</h3>
+        <p>Post your vacating apartment, earn <strong>1.5%</strong> when someone rents it.</p>
+      </a>
+      <a href="role-manager.html" class="card" style="text-decoration: none; color: inherit; display: block;">
+        <i class="fas fa-user-tie"></i>
+        <h3>Managers</h3>
+        <p>Verify properties onsite, earn <strong>2.5%</strong> per successful rental. Flexible, local work.</p>
+      </a>
+      <a href="role-estate-firm.html" class="card" style="text-decoration: none; color: inherit; display: block;">
+        <i class="fas fa-building"></i>
+        <h3>Estate Firms</h3>
+        <p>Digital property management, 0% platform commission with subscription. Get a “Verified Firm” badge.</p>
+      </a>
+      <a href="role-landlord.html" class="card" style="text-decoration: none; color: inherit; display: block;">
+        <i class="fas fa-home"></i>
+        <h3>Landlords</h3>
+        <p>Fill vacancies faster, no agent dependency, full control over your listings.</p>
+      </a>
+      <a href="role-service-provider.html" class="card" style="text-decoration: none; color: inherit; display: block;">
+        <i class="fas fa-tools"></i>
+        <h3>Service Providers</h3>
+        <p>Plumbers, electricians, cleaners, movers, engineers etc – list your services. Get free bookings, then subscribe cheaply.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Commission breakdown -->
+<section id="commission">
+  <div class="container">
+    <div class="section-title">
+      <h2>Radical transparency: <span class="gradient-text">7.5% total fee</span></h2>
+      <p>No more arbitrary agent pricing. Every naira is accounted for.</p>
+    </div>
+    <div class="commission-split">
+      <div class="split-item"><div class="split-percent">3.5%</div><div>RentEasy</div><small>Platform, tech, support</small></div>
+      <div class="split-item"><div class="split-percent">2.5%</div><div>House Manager</div><small>Verification & payment oversight</small></div>
+      <div class="split-item"><div class="split-percent">1.5%</div><div>Property Poster</div><small>Outgoing tenant / landlord</small></div>
+    </div>
+    <p style="text-align: center; margin-top: 1rem;">✅ The Tenant pays only when the deal is done.</p>
+  </div>
+</section>
+
+<!-- Trust & Safety -->
+<section id="trust">
+  <div class="container">
+    <div class="section-title">
+      <h2>Trust is our <span class="gradient-text">competitive moat</span></h2>
+    </div>
+    <div class="card-grid">
+      <div class="card"><i class="fas fa-shield-alt"></i><h3>Verified Listings</h3><p>Every property is physically inspected by a local RentEasy manager.</p></div>
+      <div class="card"><i class="fas fa-id-card"></i><h3>Manager KYC</h3><p>Managers pass background checks before they can verify properties.</p></div>
+      <div class="card"><i class="fas fa-file-signature"></i><h3>Admin Oversight</h3><p>Admins monitor chats, payments, and disputes to ensure fairness.</p></div>
+      <div class="card"><i class="fas fa-comment-dots"></i><h3>In‑app Communication</h3><p>All conversations recorded – no off‑platform scams.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Team (from pitch deck) -->
+<section id="team">
+  <div class="container">
+    <div class="section-title">
+      <h2>Meet the team behind <span class="gradient-text">RentEasy</span></h2>
+      <p>Dedicated professionals building a transparent rental ecosystem.</p>
+    </div>
+    <div class="team-grid">
+      <a href="team.html#member-obinna" class="team-card" style="text-decoration: none; color: inherit; display: block;">
+        <h4>Oforma Obinna</h4>
+        <p>Team Leader / Founder</p>
+      </a>
+      <a href="team.html#member-jecinta" class="team-card" style="text-decoration: none; color: inherit; display: block;">
+        <h4>Ofoma Jecinta</h4>
+        <p>Admin & Finance Manager</p>
+      </a>
+      <a href="team.html#member-chinemerem" class="team-card" style="text-decoration: none; color: inherit; display: block;">
+        <h4>Aladi Chinemerem</h4>
+        <p>Product Manager / Designer</p>
+      </a>
+      <a href="team.html#member-stanley" class="team-card" style="text-decoration: none; color: inherit; display: block;">
+        <h4>Nwabueze Stanley</h4>
+        <p>Technical Operations Lead</p>
+      </a>
+      <a href="team.html#member-emmanuel" class="team-card" style="text-decoration: none; color: inherit; display: block;">
+        <h4>Umeh Emmanuel</h4>
+        <p>Business Development / Partnership Lead</p>
+      </a>
+      <a href="team.html#member-johnmary" class="team-card" style="text-decoration: none; color: inherit; display: block;">
+        <h4>Mbah JohnMary</h4>
+        <p>Content and Community Manager</p>
+      </a>
+    </div>
+    <div style="text-align: center; margin-top: 2rem;">
+      <a href="team.html" class="btn btn-outline">View Full Team <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- Social proof / Traction -->
+<section id="traction">
+  <div class="container">
+    <div class="section-title">
+      <h2>Early traction & <span class="gradient-text">market validation</span></h2>
+    </div>
+    <div class="card-grid">
+      <div class="card"><i class="fas fa-users"></i><h3>80%+</h3><p>of surveyed renters prefer a verified digital platform over agents</p></div>
+      <div class="card"><i class="fas fa-envelope"></i><h3>Growing waitlist</h3><p>Hundreds of pre‑launch sign‑ups, organic social engagement</p></div>
+      <div class="card"><i class="fas fa-chart-line"></i><h3>Port Harcourt first</h3><p>Launching in Nigeria’s second largest rental market – then Lagos, Abuja, Owerri, Delta</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-title">
+      <h2>Frequently asked <span class="gradient-text">questions</span></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item"><div class="faq-question">Is RentEasy free for tenants? <i class="fas fa-chevron-down"></i></div><div class="faq-answer">Yes! Tenants can sign up and post for free, but a 7.5% commission is paid by incoming tenants after a successful rental.</div></div>
+      <div class="faq-item"><div class="faq-question">Do I still need an agent? <i class="fas fa-chevron-down"></i></div><div class="faq-answer">No. RentEasy connects you directly with landlords or verified local managers. No traditional agent required.</div></div>
+      <div class="faq-item"><div class="faq-question">How are listings verified? <i class="fas fa-chevron-down"></i></div><div class="faq-answer">A RentEasy manager visits the property, takes photos, and confirms details before the “Verified” badge is issued.</div></div>
+      <div class="faq-item"><div class="faq-question">How can I earn money on RentEasy? <i class="fas fa-chevron-down"></i></div><div class="faq-answer">Outgoing tenants earn 1.5% when their vacating property gets rented. Managers earn 2.5% per successful rental.</div></div>
+      <div class="faq-item"><div class="faq-question">What about estate firms? <i class="fas fa-chevron-down"></i></div><div class="faq-answer">Estate firms pay 0% commission for thier listings when subscribed. They also appear in our marketplace for landlords and potential clients to discover.</div></div>
+      <div class="faq-item"><div class="faq-question">Is my payment safe? <i class="fas fa-chevron-down"></i></div><div class="faq-answer">Payments are made offline between tenant and landlord, monitored and facilitated by the manager. RentEasy charges commission after confirmation.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA + Waitlist -->
+<section id="download" style="background: linear-gradient(145deg, #0f0f0f, #050505);">
+  <div class="container" style="text-align: center;">
+    <h2>Start renting smarter <span class="gradient-text">today</span></h2>
+    <p style="margin-bottom: 2rem;">Get early access – be the first to know when we launch on play and app store.</p>
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem;">
+      <a href="#" class="btn btn-primary"><i class="fab fa-android"></i> Download APK</a>
+      <a href="#" class="btn btn-outline"><i class="fas fa-mobile-alt"></i> Use Web App (PWA)</a>
+    </div>
+    <div style="max-width: 500px; margin: 0 auto;">
+      <h4 style="margin-bottom: 1rem;">Join the waitlist</h4>
+      <form id="waitlistForm" style="display: flex; flex-direction: column; gap: 1rem;">
+        <input type="email" id="waitlistEmail" placeholder="Your email address" style="padding: 1rem; border-radius: 40px; border: none; background: #1e1e1e; color: white;" required>
+        <input type="text" id="waitlistName" placeholder="Your name (optional)" style="padding: 1rem; border-radius: 40px; border: none; background: #1e1e1e; color: white;">
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Notify me when ready</button>
+      </form>
+      <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.6;">No spam, just launch updates.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="mailto:renteasyapartmentsearch@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="#"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p style="margin-top: 1.5rem;">© 2026 RentEasy. All rights reserved.</p>
+    <p style="margin-top: 0.5rem; font-size: 0.8rem;">📧 renteasyapartmentsearch@gmail.com | 📞 +234 814 911 3218</p>
+  </div>
+</footer>
+
+<script>
+  // Wait for DOM to load
+document.addEventListener('DOMContentLoaded', function() {
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  const dropdownBtn = document.getElementById('rolesDropdownBtn');
+  const dropdownMenu = document.getElementById('rolesDropdownMenu');
+
+  // Toggle mobile menu
+  if (menuToggle) {
+    menuToggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      navLinks.classList.toggle('show');
+    });
+  }
+
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', function(e) {
+    if (navLinks && navLinks.classList.contains('show')) {
+      if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+        navLinks.classList.remove('show');
+      }
+    }
+  });
+
+  // Desktop dropdown toggle
+  if (dropdownBtn && dropdownMenu) {
+    dropdownBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      dropdownMenu.classList.toggle('show');
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+      if (dropdownMenu.classList.contains('show') && !dropdownBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+        dropdownMenu.classList.remove('show');
+      }
+    });
+  }
+
+  // For mobile: also close dropdown when clicking a link inside it
+  const dropdownLinks = document.querySelectorAll('.dropdown-menu a');
+  dropdownLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      if (window.innerWidth <= 768) {
+        navLinks.classList.remove('show');
+      }
+      dropdownMenu.classList.remove('show');
+    });
+  });
+});
+
+  // FAQ accordion
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    question.addEventListener('click', () => {
+      item.classList.toggle('active');
+      const icon = question.querySelector('i');
+      if (item.classList.contains('active')) {
+        icon.classList.remove('fa-chevron-down');
+        icon.classList.add('fa-chevron-up');
+      } else {
+        icon.classList.remove('fa-chevron-up');
+        icon.classList.add('fa-chevron-down');
+      }
+    });
+  });
+
+  // Waitlist form (Supabase integration – requires supabase client)
+  // For demo, we'll just show an alert. You can integrate real Supabase later.
+  const waitlistForm = document.getElementById('waitlistForm');
+  if (waitlistForm) {
+    waitlistForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('waitlistEmail').value;
+      if (!email) return;
+      alert(`✅ Thanks ${email}! You've been added to the waitlist. We'll notify you at launch.`);
+      waitlistForm.reset();
+    });
+  }
+</script>
+
+<!-- Optional: add Supabase real integration if needed, but the marketing site works without it -->
+</body>
+</html>

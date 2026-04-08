@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RentEasy for Tenants – 7.5% Commission, Verified Homes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #0a0a0a; color: #fff; line-height: 1.5; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+    .navbar { padding: 1rem 0; background: rgba(10,10,10,0.95); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 1.6rem; font-weight: 800; text-decoration: none; color: white; }
+    .logo span { color: #f5b042; }
+    .back-link { color: #ccc; text-decoration: none; margin-left: 2rem; }
+    .back-link:hover { color: #f5b042; }
+    h1 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
+    h2 { font-size: clamp(1.5rem, 3vw, 2rem); margin: 2rem 0 1rem; }
+    .gradient-text { background: linear-gradient(135deg, #f5b042, #10b981); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .btn { display: inline-block; padding: 0.8rem 2rem; border-radius: 40px; font-weight: 600; text-decoration: none; transition: 0.2s; margin-top: 1rem; }
+    .btn-primary { background: #10b981; color: #0a0a0a; }
+    .btn-primary:hover { background: #0d9668; transform: translateY(-2px); }
+    .btn-outline { border: 1px solid #10b981; color: #10b981; background: transparent; }
+    .card { background: #111; border: 1px solid #222; border-radius: 24px; padding: 1.5rem; margin-bottom: 1.5rem; }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 1.5rem 0; }
+    .feature-list { list-style: none; padding-left: 0; }
+    .feature-list li { margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative; }
+    .feature-list li:before { content: "✓"; color: #10b981; position: absolute; left: 0; }
+    .footer { text-align: center; padding: 2rem 0; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 3rem; color: #888; }
+    @media (max-width: 768px) { .container { padding: 0 16px; } }
+  </style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="container nav-container">
+    <a href="index.html" class="logo">Rent<span>Easy</span></a>
+    <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+  </div>
+</nav>
+<main class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
+  <h1>Find Your Perfect Home <span class="gradient-text">With Full Transparency</span></h1>
+  <p style="font-size: 1.2rem; color: #bbb; max-width: 800px;">RentEasy connects you directly with landlords or verified local managers. You pay a fair 7.5% commission – no hidden agent fees.</p>
+
+  <div class="card">
+    <h3><i class="fas fa-check-circle"></i> Why RentEasy for Tenants?</h3>
+    <ul class="feature-list">
+      <li><strong>Transparent 7.5% commission</strong> – You pay only the agreed rent + 7.5% on top. No agent markups.</li>
+      <li><strong>Verified listings</strong> – Every property is physically inspected by a local RentEasy manager.</li>
+      <li><strong>Direct communication</strong> – Chat with landlords or managers inside the app. No middlemen.</li>
+      <li><strong>No fake listings</strong> – We remove scams. You only see real, available properties.</li>
+      <li><strong>Landlord gets full rent</strong> – Your full rent amount goes to the landlord; the 7.5% fee covers platform & manager services.</li>
+    </ul>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h3><i class="fas fa-search"></i> How to Find a Home</h3>
+      <ol style="margin-left: 1.2rem;">
+        <li>Download the RentEasy app</li>
+        <li>Browse verified properties by location, price, bedrooms</li>
+        <li>Click "Contact" – if property is posted by a landlord, you chat directly; if posted by an outgoing tenant, you chat with the assigned manager</li>
+        <li>Schedule a viewing, negotiate, and close the deal</li>
+        <li>You pay the annual rent + 7.5% commission (e.g., ₦1,000,000 rent + ₦75,000 fee = ₦1,075,000 total)</li>
+        <li>The landlord receives the full rent; the commission is split: 2.5% manager, 1.5% referrer, 3.5% RentEasy</li>
+      </ol>
+    </div>
+    <div class="card">
+      <h3><i class="fas fa-shield-alt"></i> Trust & Safety</h3>
+      <ul class="feature-list">
+        <li>All properties have a "Verified" badge after physical inspection</li>
+        <li>In-app messaging keeps records of every conversation</li>
+        <li>Dispute resolution by admin</li>
+        <li>Landlords and managers are KYC verified</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><i class="fas fa-chart-line"></i> Tenant Dashboard</h3>
+    <ul class="feature-list">
+      <li>Track your saved properties</li>
+      <li>View your chat history with landlords/managers</li>
+      <li>Receive notifications when a property you like gets rented</li>
+      <li>Access digital receipts for your payments</li>
+    </ul>
+  </div>
+
+  <div style="text-align: center; margin-top: 2rem;">
+    <h2>Stop paying inflated agent fees. Rent with confidence.</h2>
+    <a href="#" class="btn btn-primary"><i class="fab fa-android"></i> Download APK</a>
+    <a href="#" class="btn btn-outline" style="margin-left: 1rem;"><i class="fas fa-globe"></i> Use Web App (PWA)</a>
+  </div>
+</main>
+<footer class="footer"><div class="container"><p>© 2026 RentEasy. All rights reserved.</p></div></footer>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RentEasy Team – The People Behind the Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0a0a;
+      color: #ffffff;
+      line-height: 1.5;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .navbar {
+      padding: 1rem 0;
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 800;
+      text-decoration: none;
+      color: white;
+    }
+    .logo span { color: #f5b042; }
+    .back-link {
+      color: #ccc;
+      text-decoration: none;
+      margin-left: 2rem;
+    }
+    .back-link:hover { color: #f5b042; }
+    h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 1rem;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #f5b042, #10b981);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .team-detail-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    .team-member-card {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 24px;
+      overflow: hidden;
+      transition: transform 0.2s;
+    }
+    .team-member-card:hover {
+      transform: translateY(-4px);
+      border-color: #f5b042;
+    }
+    .member-photo {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+    .member-info {
+      padding: 1.5rem;
+    }
+    .member-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+    .member-role {
+      color: #f5b042;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+    .member-bio {
+      color: #bbb;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    .footer {
+      text-align: center;
+      padding: 2rem 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      margin-top: 3rem;
+      color: #888;
+    }
+    .team-member-card:target {
+  border-color: #f5b042;
+  box-shadow: 0 0 0 2px rgba(245,176,66,0.3);
+  transition: 0.2s;
+}
+    @media (max-width: 768px) {
+      .container { padding: 0 16px; }
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="container nav-container">
+    <a href="index.html" class="logo">Rent<span>Easy</span></a>
+    <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+  </div>
+</nav>
+
+<main class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
+  <h1>Meet the team behind <span class="gradient-text">RentEasy</span></h1>
+  <p style="font-size: 1.2rem; color: #bbb; max-width: 700px; margin-bottom: 2rem;">Passionate individuals building the future of ethical renting in West Africa.</p>
+
+  <div class="team-detail-grid">
+    <!-- Obinna Oforma -->
+    <div id="member-obinna" class="team-member-card">
+      <img src="images/obinna.jpeg" alt="Obinna Oforma" class="member-photo">
+      <div class="member-info">
+        <div class="member-name">Oforma Obinna</div>
+        <div class="member-role">Team Leader / Founder</div>
+        <div class="member-bio">Obinna is the visionary behind RentEasy. With a background in real estate and tech, he saw the need to digitize Nigeria's broken rental system. He leads strategy, product direction, and stakeholder partnerships.</div>
+      </div>
+    </div>
+
+    <!-- Jecinta Ofoma -->
+    <div id="member-jecinta" class="team-member-card">
+      <img src="images/jecinta.jpeg" alt="jecinta Ofoma" class="member-photo">
+      <div class="member-info">
+        <div class="member-name">Ofoma Jecinta</div>
+        <div class="member-role">Admin & Finance Manager</div>
+        <div class="member-bio">Jecinta ensures smooth financial operations, manages budgets, and oversees administrative workflows. Her attention to detail keeps the team organized and on track.</div>
+      </div>
+    </div>
+
+    <!-- Aladi Chinemerem -->
+    <div id="member-chinemerem" class="team-member-card">
+      <img src="images/francis.jpeg" alt="aladi chinemerem" class="member-photo">
+      <div class="member-info">
+        <div class="member-name">Aladi Chinemerem</div>
+        <div class="member-role">Product Manager / Designer</div>
+        <div class="member-bio">Chinemerem bridges user needs and technical execution. She designs intuitive interfaces and manages the product roadmap, ensuring RentEasy delivers a seamless experience.</div>
+      </div>
+    </div>
+
+    <!-- Nwabueze Stanley -->
+    <div id="member-stanley" class="team-member-card">
+      <img src="images/odinaka (1).jpeg" alt="nwabueze stanley" class="member-photo">
+      <div class="member-info">
+        <div class="member-name">Nwabueze Stanley</div>
+        <div class="member-role">Technical Operations Lead</div>
+        <div class="member-bio">Stanley oversees the engineering team, system architecture, and deployment. He ensures the platform is robust, scalable, and secure for thousands of users.</div>
+      </div>
+    </div>
+
+    <!-- Umeh Emmanuel -->
+    <div id="member-emmanuel" class="team-member-card">
+      <img src="images/Emmanuel.jpeg" alt="umeh Emmanuel" class="member-photo">
+      <div class="member-info">
+        <div class="member-name">Umeh Emmanuel</div>
+        <div class="member-role">Business Development / Partnership Lead</div>
+        <div class="member-bio">Emmanuel builds relationships with estate firms, landlords, and corporate partners. He drives growth initiatives and explores new revenue channels.</div>
+      </div>
+    </div>
+
+    <!-- Mbah JohnMary -->
+    <div id="member-johnmary" class="team-member-card">
+      <img src="images/johnMary.jpeg" alt="john mbah" class="member-photo">
+      <div class="member-info">
+        <div class="member-name">Mbah JohnMary</div>
+        <div class="member-role">Content and Community Manager</div>
+        <div class="member-bio">JohnMary engages users on social media, manages community feedback, and creates compelling content. He ensures RentEasy's voice is consistent and trusted.</div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <p>© 2026 RentEasy. All rights reserved.</p>
+    <p style="font-size: 0.8rem;">📧 renteasyapartmentsearch@gmail.com | 📞 +234 814 911 3218</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RentEasy for Estate Firms – Complete Property Management System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0a0a;
+      color: #ffffff;
+      line-height: 1.5;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .navbar {
+      padding: 1rem 0;
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 800;
+      text-decoration: none;
+      color: white;
+    }
+    .logo span { color: #f5b042; }
+    .back-link {
+      color: #ccc;
+      text-decoration: none;
+      margin-left: 2rem;
+    }
+    .back-link:hover { color: #f5b042; }
+    h1 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
+    h2 { font-size: clamp(1.5rem, 3vw, 2rem); margin: 2rem 0 1rem; }
+    h3 { margin: 1.5rem 0 0.5rem; }
+    .gradient-text {
+      background: linear-gradient(135deg, #f5b042, #10b981);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s;
+      margin-top: 1rem;
+    }
+    .btn-primary {
+      background: #10b981;
+      color: #0a0a0a;
+    }
+    .btn-primary:hover {
+      background: #0d9668;
+      transform: translateY(-2px);
+    }
+    .card {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 24px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .badge {
+      background: #f5b04220;
+      color: #f5b042;
+      padding: 0.2rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+    .phase-list {
+      list-style: none;
+      padding-left: 0;
+    }
+    .phase-list li {
+      margin-bottom: 1rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    .phase-list li:before {
+      content: "✓";
+      color: #10b981;
+      position: absolute;
+      left: 0;
+    }
+    .footer {
+      text-align: center;
+      padding: 2rem 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      margin-top: 3rem;
+      color: #888;
+    }
+    @media (max-width: 768px) {
+      .container { padding: 0 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container nav-container">
+    <a href="index.html" class="logo">Rent<span>Easy</span></a>
+    <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+  </div>
+</nav>
+
+<main class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
+  <div class="badge">For Estate Firms</div>
+  <h1>Complete Property Management System <span class="gradient-text">Built for Professionals</span></h1>
+  <p style="font-size: 1.2rem; color: #bbb; max-width: 800px;">Manage landlords, properties, units, tenants, and rent collection – all in one place. Plus, list your vacancies on RentEasy with <strong>0% commission</strong> when subscribed.</p>
+
+  <!-- Core concept -->
+  <div class="card">
+    <h3><i class="fas fa-brain"></i> The Core Concept</h3>
+    <p>Every rental unit can be in one of three states:</p>
+    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+      <li>Not managed by you → ignore</li>
+      <li>Managed by you but not on RentEasy → external property</li>
+      <li>Managed by you and listed on RentEasy → for marketing</li>
+    </ul>
+    <p class="mt-2">Whether a unit is on RentEasy or not, once it's rented, you track it the same way in your system.</p>
+  </div>
+
+  <!-- Two ways units enter -->
+  <h2>How Units Enter Your System</h2>
+  <div class="grid-2">
+    <div class="card">
+      <h3><i class="fas fa-building"></i> External Property (Manual Entry)</h3>
+      <ol style="margin-left: 1.2rem; margin-top: 0.5rem;">
+        <li>You meet a landlord → They hire you to manage their property</li>
+        <li>Add them as a LANDLORD in your system</li>
+        <li>Add their PROPERTY (building/compound)</li>
+        <li>Add UNITS (apartments) to that property</li>
+        <li>Each unit is now in your system (vacant)</li>
+        <li>When rented → Add TENANT to that unit</li>
+        <li>Track payments for that unit forever</li>
+      </ol>
+    </div>
+    <div class="card">
+      <h3><i class="fas fa-chart-line"></i> RentEasy Listing (Marketing First)</h3>
+      <ol style="margin-left: 1.2rem; margin-top: 0.5rem;">
+        <li>You have a vacant unit (maybe not in your system yet)</li>
+        <li>Post it on RentEasy to find a tenant</li>
+        <li>It's just a LISTING (not yet a unit in your system)</li>
+        <li>Someone rents it → Now you need to track it permanently</li>
+        <li>CONVERT the listing to a UNIT</li>
+        <li>System creates a PROPERTY and UNIT</li>
+        <li>Add the TENANT → Track payments forever</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Four Core Entities -->
+  <h2>The Four Core Entities</h2>
+  <div class="grid-2">
+    <div class="card"><i class="fas fa-user-tie"></i> <strong>Landlords</strong> – who own properties</div>
+    <div class="card"><i class="fas fa-city"></i> <strong>Properties</strong> – buildings/compounds that contain units</div>
+    <div class="card"><i class="fas fa-door-open"></i> <strong>Units</strong> – individual apartments (source of truth)</div>
+    <div class="card"><i class="fas fa-users"></i> <strong>Tenants</strong> – people living in units</div>
+  </div>
+  <p style="margin-top: -0.5rem;">And one temporary entity: <strong>Listings</strong> – units currently for rent on RentEasy.</p>
+
+  <!-- Complete Lifecycle -->
+  <h2>Complete Lifecycle</h2>
+  <div class="card">
+    <h3>Landlord Lifecycle</h3>
+    <ul class="phase-list">
+      <li>Estate firm meets a landlord → Adds to system (name, phone, email, bank details)</li>
+      <li>Add properties for this landlord</li>
+      <li>View all properties/units for this landlord in one place</li>
+      <li>When sending payments, bank details are ready</li>
+    </ul>
+    <h3>Property Lifecycle</h3>
+    <ul class="phase-list">
+      <li>Created by estate firm, linked to a landlord</li>
+      <li>Contains one or more units</li>
+      <li>Can be active or archived (when you stop managing it)</li>
+      <li>Archived only when ALL units are vacant</li>
+    </ul>
+    <h3>Unit Lifecycle (The Heart of the System)</h3>
+    <ul class="phase-list">
+      <li><strong>Created:</strong> from external property or from RentEasy listing conversion</li>
+      <li><strong>Vacant:</strong> can be posted to RentEasy (creates listing) or rented directly</li>
+      <li><strong>Tenant added:</strong> search existing RentEasy user or add manually (name/phone). Unit becomes 'occupied'</li>
+      <li><strong>Ongoing payments:</strong> record payment → PDF receipt → send to tenant (in-app or SMS)</li>
+      <li><strong>Tenant moves out:</strong> remove tenant → unit becomes vacant → tenant saved to history</li>
+      <li><strong>Stop managing property:</strong> only if all units vacant → archive property</li>
+    </ul>
+    <h3>Listing Lifecycle (Temporary)</h3>
+    <ul class="phase-list">
+      <li>Created when posting a vacant unit to RentEasy</li>
+      <li>Links to the unit (if unit exists) or standalone</li>
+      <li>Status: 'active' while looking for tenant</li>
+      <li>When rented: if linked → mark unit occupied, add tenant; if standalone → convert to unit first</li>
+      <li>Status becomes 'rented' (kept for history)</li>
+    </ul>
+  </div>
+
+  <!-- What estate firms can do after implementation -->
+  <h2>What You Can Do with RentEasy</h2>
+  <div class="grid-2">
+    <div class="card"><i class="fas fa-user-plus"></i> <strong>Landlord Management</strong><br>Add landlords (name, phone, email, bank details), see all properties per landlord, track payments owed</div>
+    <div class="card"><i class="fas fa-draw-polygon"></i> <strong>Property Management</strong><br>Add external properties with landlord, add multiple units, remove/archive properties</div>
+    <div class="card"><i class="fas fa-door-closed"></i> <strong>Unit Management</strong><br>View all units grouped by landlord/property, add tenant (search or manual), remove tenant, view history, post to RentEasy</div>
+    <div class="card"><i class="fas fa-store"></i> <strong>RentEasy Integration</strong><br>Post units to marketplace, view all listings (active/rented/converted), convert rented listings to portfolio units</div>
+    <div class="card"><i class="fas fa-hand-holding-usd"></i> <strong>Rent Collection</strong><br>Record payments for any unit, generate PDF receipts, send receipts via in-app or SMS, confirm/reject payments</div>
+    <div class="card"><i class="fas fa-chart-pie"></i> <strong>Reporting</strong><br>Revenue by landlord, PDF reports, export payment data, track occupancy rates</div>
+  </div>
+
+  <!-- Implementation phases summary -->
+  <h2>Implementation Roadmap (For Our Dev Team)</h2>
+  <div class="card">
+    <p>We've already built the foundation. The following phases are complete or in progress:</p>
+    <ul class="phase-list">
+      <li><strong>Phase 1:</strong> Database setup – landlords table, unit columns, tenant invites</li>
+      <li><strong>Phase 2:</strong> Landlord management – add/edit/view landlords, properties per landlord</li>
+      <li><strong>Phase 3:</strong> Unit & tenant management – add/remove tenants, history, manual entry</li>
+      <li><strong>Phase 4:</strong> RentEasy integration – post listings, convert to units, my listings page</li>
+      <li><strong>Phase 5:</strong> Unified dashboard & reports – group by landlord, rent tracking, archive</li>
+      <li><strong>Phase 6:</strong> Navigation & polish – layout updates, testing, dark mode</li>
+    </ul>
+    <p>Everything is designed to give you full control over your portfolio.</p>
+  </div>
+
+  <!-- CTA -->
+  <div style="text-align: center; margin-top: 3rem;">
+    <h2>Ready to digitize your property management?</h2>
+    <p style="margin-bottom: 1rem;">Download RentEasy and start managing landlords, units, and payments like never before.</p>
+    <a href="#" class="btn btn-primary"><i class="fab fa-android"></i> Download APK</a>
+    <a href="#" class="btn btn-outline" style="margin-left: 1rem;"><i class="fas fa-globe"></i> Use Web App (PWA)</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <p>© 2026 RentEasy. All rights reserved.</p>
+    <p style="font-size: 0.8rem;">📧 renteasyapartmentsearch@gmail.com | 📞 +234 814 911 3218</p>
+  </div>
+</footer>
+
+</body>
+</html>
