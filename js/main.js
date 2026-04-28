@@ -1,6 +1,7 @@
 // Supabase configuration
-const SUPABASE_URL = 'https://zbehpghfgkxqxhgqyyqv.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpiZWhwZ2hmZ2t4cXhoZ3F5eXF2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk1Mjc4OTksImV4cCI6MjA4NTEwMzg5OX0.RaFOsWfPGTkxfAnnrICnSYWQIAHdQBZrzgTi37R8xTQ';
+  const SUPABASE_URL= 'https://uxkybljoxtxnsnsrblfu.supabase.co;'
+  const SUPABASE_ANON_KEY= 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV4a3libGpveHR4bnNuc3JibGZ1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk4NTIxNDQsImV4cCI6MjA4NTQyODE0NH0.6PxDCYIMzmUwqxZlRzfSBC1v_1cgutSupUIzaD2E5EE;'
+  const EDGE_FUNCTION_URL = 'https://your-project.supabase.co/functions/v1/get-location';
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 // Waitlist table must exist: CREATE TABLE waitlist (id SERIAL PRIMARY KEY, email TEXT UNIQUE, name TEXT, created_at TIMESTAMP DEFAULT NOW());
