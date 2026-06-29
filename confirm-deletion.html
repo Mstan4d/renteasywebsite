@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delete Account – RentEasy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0a0a;
+      color: #e0e0e0;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #111;
+      padding: 2rem;
+      border-radius: 20px;
+      border: 1px solid #222;
+      width: 100%;
+    }
+    h1 { color: #f5b042; margin-bottom: 0.5rem; }
+    .subtitle { color: #94a3b8; margin-bottom: 1.5rem; font-size: 0.95rem; }
+    h2 { color: #f5b042; margin: 1.5rem 0 0.5rem; font-size: 1.2rem; }
+    p { margin-bottom: 1rem; }
+    ul { margin: 1rem 0 1.5rem 1.5rem; }
+    ul li { margin-bottom: 0.5rem; color: #94a3b8; }
+    a { color: #10b981; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .back-link { display: inline-block; margin-top: 2rem; }
+
+    /* ── WARNING BOX ── */
+    .warning-box {
+      background: rgba(239, 68, 68, 0.1);
+      border-left: 4px solid #ef4444;
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+    .warning-box strong {
+      color: #ef4444;
+      display: block;
+      font-size: 1.1rem;
+      margin-bottom: 0.25rem;
+    }
+    .warning-box p {
+      color: #fca5a5;
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    /* ── INFO BOX ── */
+    .info-box {
+      background: rgba(16, 185, 129, 0.08);
+      border-left: 4px solid #10b981;
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+    }
+    .info-box p {
+      color: #6ee7b7;
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    /* ── FORM ── */
+    .delete-form {
+      margin: 1.5rem 0;
+      padding: 1.5rem;
+      background: #1a1a1a;
+      border-radius: 12px;
+      border: 1px solid #333;
+    }
+    .delete-form label {
+      display: block;
+      font-weight: 500;
+      color: #e0e0e0;
+      margin-bottom: 0.5rem;
+    }
+    .delete-form input[type="email"] {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: #0a0a0a;
+      border: 1px solid #333;
+      border-radius: 10px;
+      color: #e0e0e0;
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      transition: border 0.2s;
+    }
+    .delete-form input:focus {
+      outline: none;
+      border-color: #f5b042;
+    }
+    .delete-form .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin: 1rem 0;
+    }
+    .delete-form .checkbox-group input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      margin-top: 3px;
+      accent-color: #ef4444;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+    .delete-form .checkbox-group label {
+      font-size: 0.95rem;
+      color: #94a3b8;
+      cursor: pointer;
+      margin: 0;
+    }
+    .delete-form .btn-delete {
+      width: 100%;
+      padding: 0.75rem;
+      background: #dc2626;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .delete-form .btn-delete:hover:not(:disabled) {
+      background: #b91c1c;
+    }
+    .delete-form .btn-delete:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    /* ── SUCCESS STATE ── */
+    .success-state {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    .success-state .success-icon {
+      font-size: 48px;
+      margin-bottom: 1rem;
+    }
+    .success-state h2 {
+      color: #10b981;
+      margin: 0 0 0.5rem;
+    }
+    .success-state p {
+      color: #94a3b8;
+      max-width: 400px;
+      margin: 0 auto 1rem;
+    }
+
+    /* ── DATA GRID ── */
+    .data-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin: 1rem 0;
+    }
+    .data-item {
+      background: #1a1a1a;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      border: 1px solid #222;
+    }
+    .data-item .data-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: #64748b;
+      letter-spacing: 0.5px;
+    }
+    .data-item .data-value {
+      font-size: 0.95rem;
+      color: #e0e0e0;
+      margin-top: 0.25rem;
+    }
+    .data-item .data-value.deleted {
+      color: #ef4444;
+      text-decoration: line-through;
+    }
+    .data-item .data-value.retained {
+      color: #f5b042;
+    }
+
+    /* ── STEPS ── */
+    .steps {
+      margin: 1.5rem 0;
+    }
+    .step-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    .step-item:last-child { border-bottom: none; }
+    .step-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: #f5b042;
+      color: #0a0a0a;
+      border-radius: 50%;
+      font-weight: 700;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .step-content { flex: 1; }
+    .step-content strong { color: #e0e0e0; display: block; }
+    .step-content p { color: #94a3b8; font-size: 0.95rem; margin: 0.25rem 0 0; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .container { padding: 1.25rem; }
+      h1 { font-size: 1.5rem; }
+      .data-grid { grid-template-columns: 1fr; }
+      .step-item { flex-direction: column; gap: 0.5rem; }
+      .step-number { width: 28px; height: 28px; font-size: 0.8rem; }
+    }
+
+    /* ── SPINNER ── */
+    .spinner {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-top: 2px solid #fff;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container" id="app">
+
+  <!-- ── MAIN CONTENT ── -->
+  <div id="mainContent">
+    <h1>Delete Your Account</h1>
+    <p class="subtitle">Request permanent deletion of your RentEasy app account</p>
+
+    <div class="warning-box">
+      <strong>⚠️ This action cannot be undone</strong>
+      <p>Deleting your account will permanently remove all your data from the RentEasy app.</p>
+    </div>
+
+    <!-- ── WHAT GETS DELETED ── -->
+    <h2>What Happens When You Delete Your Account</h2>
+    <div class="data-grid">
+      <div class="data-item">
+        <div class="data-label">Profile Information</div>
+        <div class="data-value deleted">Deleted</div>
+      </div>
+      <div class="data-item">
+        <div class="data-label">Listings &amp; Properties</div>
+        <div class="data-value deleted">Deleted</div>
+      </div>
+      <div class="data-item">
+        <div class="data-label">Messages &amp; Chats</div>
+        <div class="data-value deleted">Deleted</div>
+      </div>
+      <div class="data-item">
+        <div class="data-label">Transaction History</div>
+        <div class="data-value deleted">Deleted</div>
+      </div>
+      <div class="data-item">
+        <div class="data-label">Reviews &amp; Ratings</div>
+        <div class="data-value deleted">Deleted</div>
+      </div>
+      <div class="data-item">
+        <div class="data-label">Saved Properties</div>
+        <div class="data-value deleted">Deleted</div>
+      </div>
+      <div class="data-item" style="grid-column: span 2;">
+        <div class="data-label">Anonymized Analytics</div>
+        <div class="data-value retained">Retained (non-identifiable)</div>
+      </div>
+    </div>
+
+    <!-- ── DELETION STEPS ── -->
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="step-item">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <strong>Submit Request</strong>
+          <p>Enter your email and submit a deletion request. We'll send a confirmation link.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <strong>Confirm via Email</strong>
+          <p>Click the link in the confirmation email to verify your identity.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <strong>Account Deleted</strong>
+          <p>Your account and all associated data will be permanently deleted within 48 hours.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── DELETE FORM ── -->
+    <div class="delete-form">
+      <label for="delete-email">Enter the email associated with your RentEasy app account</label>
+      <input
+        type="email"
+        id="delete-email"
+        placeholder="you@example.com"
+        required
+      />
+
+      <div class="checkbox-group">
+        <input type="checkbox" id="confirm-delete" />
+        <label for="confirm-delete">
+          I understand that this action is <strong>permanent</strong> and cannot be undone.
+          I confirm that I want to delete my RentEasy app account and all associated data.
+        </label>
+      </div>
+
+      <div class="checkbox-group">
+        <input type="checkbox" id="confirm-backup" />
+        <label for="confirm-backup">
+          I have backed up any important information I want to keep from the app.
+        </label>
+      </div>
+
+      <button class="btn-delete" id="deleteBtn" disabled>
+        Request Account Deletion
+      </button>
+
+      <div id="formStatus" style="margin-top: 0.75rem; font-size: 0.9rem; text-align: center;"></div>
+
+      <p style="font-size: 0.8rem; color: #64748b; margin-top: 0.75rem; text-align: center;">
+        A confirmation email will be sent to your registered email address.
+        You must click the link in the email to complete the deletion.
+      </p>
+    </div>
+
+    <!-- ── CONTACT ── -->
+    <h2>Need Help?</h2>
+    <p>
+      If you're having trouble or have questions about your data,
+      contact us at
+      <a href="mailto:renteasyapartmentsearch@gmail.com">renteasyapartmentsearch@gmail.com</a>.
+    </p>
+
+    <a href="index.html" class="back-link">← Back to RentEasy</a>
+  </div>
+
+  <!-- ── SUCCESS STATE ── -->
+  <div id="successState" style="display:none;">
+    <div class="success-state">
+      <div class="success-icon">📧</div>
+      <h2>Deletion Request Submitted!</h2>
+      <p>
+        We've sent a confirmation email to <strong id="submittedEmail"></strong>.
+        Please click the link in the email to complete the account deletion process.
+      </p>
+      <div class="info-box">
+        <p>⏳ Your account will be permanently deleted within 48 hours after confirmation.</p>
+      </div>
+      <p style="margin-top: 1rem; font-size: 0.9rem; color: #64748b;">
+        Didn't receive the email? Check your spam folder or
+        <a href="#" onclick="resendConfirmation()">click here to resend</a>.
+      </p>
+      <a href="index.html" class="back-link">← Back to RentEasy</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // ── SUPABASE CONFIG ──
+  const SUPABASE_URL = 'https://uxkybljoxtxnsnsrblfu.supabase.co';
+  const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY_HERE';
+
+  const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  // ── DOM REFS ──
+  const mainContent = document.getElementById('mainContent');
+  const successState = document.getElementById('successState');
+  const emailInput = document.getElementById('delete-email');
+  const confirmCheckbox = document.getElementById('confirm-delete');
+  const backupCheckbox = document.getElementById('confirm-backup');
+  const deleteBtn = document.getElementById('deleteBtn');
+  const formStatus = document.getElementById('formStatus');
+  const submittedEmail = document.getElementById('submittedEmail');
+
+  // ── VALIDATE FORM ──
+  function validateForm() {
+    const email = emailInput.value.trim();
+    const isEmailValid = email.length > 0 && email.includes('@') && email.includes('.');
+    const isConfirmed = confirmCheckbox.checked;
+    const isBackupConfirmed = backupCheckbox.checked;
+
+    deleteBtn.disabled = !(isEmailValid && isConfirmed && isBackupConfirmed);
+  }
+
+  emailInput.addEventListener('input', validateForm);
+  confirmCheckbox.addEventListener('change', validateForm);
+  backupCheckbox.addEventListener('change', validateForm);
+
+  // ── SUBMIT DELETION REQUEST ──
+  deleteBtn.addEventListener('click', async function(e) {
+    e.preventDefault();
+    if (deleteBtn.disabled) return;
+
+    const email = emailInput.value.trim();
+
+    // ── FINAL CONFIRMATION ──
+    if (!confirm(
+      '⚠️ ARE YOU SURE?\n\n' +
+      'This will permanently delete your RentEasy app account.\n\n' +
+      'All your data will be removed within 48 hours after confirmation.\n\n' +
+      'Click OK to continue.'
+    )) {
+      return;
+    }
+
+    // ── SHOW LOADING ──
+    deleteBtn.disabled = true;
+    deleteBtn.innerHTML = '<span class="spinner"></span> Submitting...';
+    formStatus.textContent = '';
+    formStatus.style.color = '#94a3b8';
+
+    try {
+      // ── 1. CHECK IF USER EXISTS IN AUTH ──
+      const { data: authUsers, error: authError } = await supabase
+        .from('profiles')
+        .select('id, email, full_name')
+        .eq('email', email)
+        .maybeSingle();
+
+      if (authError) throw authError;
+
+      if (!authUsers) {
+        formStatus.textContent = '❌ No account found with this email address.';
+        formStatus.style.color = '#ef4444';
+        deleteBtn.disabled = false;
+        deleteBtn.textContent = 'Request Account Deletion';
+        return;
+      }
+
+      // ── 2. CHECK IF REQUEST ALREADY EXISTS ──
+      const { data: existingRequest } = await supabase
+        .from('account_deletion_requests')
+        .select('id, status')
+        .eq('user_id', authUsers.id)
+        .eq('status', 'pending')
+        .maybeSingle();
+
+      if (existingRequest) {
+        formStatus.textContent = '⏳ You already have a pending deletion request. Please check your email.';
+        formStatus.style.color = '#f5b042';
+        deleteBtn.disabled = false;
+        deleteBtn.textContent = 'Request Account Deletion';
+        return;
+      }
+
+      // ── 3. CREATE DELETION REQUEST ──
+      const { data: newRequest, error: insertError } = await supabase
+        .from('account_deletion_requests')
+        .insert({
+          user_id: authUsers.id,
+          email: email,
+          status: 'pending',
+          ip_address: '{{client_ip}}',
+          user_agent: navigator.userAgent
+        })
+        .select()
+        .single();
+
+      if (insertError) throw insertError;
+
+      // ── 4. SEND CONFIRMATION EMAIL ──
+      // ⚠️ IMPORTANT: In production, this should be handled by a Supabase Edge Function
+      // For now, we simulate it and log the confirmation link
+
+      console.log('📧 Confirmation email would be sent to:', email);
+      console.log('🔗 Confirmation token:', newRequest.confirmation_token);
+      console.log('🔗 Confirmation link:', window.location.origin + '/confirm-deletion.html?token=' + newRequest.confirmation_token);
+
+      // ── 5. SHOW SUCCESS ──
+      submittedEmail.textContent = email;
+      mainContent.style.display = 'none';
+      successState.style.display = 'block';
+
+    } catch (error) {
+      console.error('Error submitting deletion request:', error);
+      formStatus.textContent = '❌ Failed to submit request. Please try again or contact support.';
+      formStatus.style.color = '#ef4444';
+      deleteBtn.disabled = false;
+      deleteBtn.textContent = 'Request Account Deletion';
+    }
+  });
+
+  // ── RESEND CONFIRMATION ──
+  function resendConfirmation() {
+    alert('Resend functionality would be implemented here.\n\nThis will send a new confirmation email to your registered address.');
+  }
+
+  // ── CHECK URL FOR CONFIRMATION TOKEN ──
+  // This page can also handle the confirmation if you want it to
+  // But better to have a separate confirm-deletion.html page
+  (function checkUrlForToken() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const token = urlParams.get('token');
+
+    if (token) {
+      // Redirect to confirmation page
+      window.location.href = '/confirm-deletion.html?token=' + token;
+    }
+  })();
+</script>
+
+</body>
+</html>
