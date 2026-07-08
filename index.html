@@ -479,7 +479,7 @@
       <a href="#trust">Trust</a>
       <a href="#team">Team</a>
       <a href="#faq">FAQ</a>
-      <a href="apk/RentEasy.apk" class="btn btn-primary" download><i class="fab fa-android"></i> Download APK</a>
+      <a href="download-android.html" class="btn btn-primary"><i class="fab fa-android"></i> Download APK</a>
     </div>
   </div>
 </nav>
@@ -491,8 +491,8 @@
       <h1>Rent apartments in Nigeria <span class="gradient-text">without agent fees</span></h1>
       <p style="font-size: 1.2rem; margin: 1.5rem 0; color: #bbb;">RentEasy connects tenants, landlords, and verified managers — transparent 7.5% commission, zero hidden charges.</p>
       <div class="hero-buttons" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-        <a href="apk/RentEasy.apk" class="btn btn-primary" download><i class="fab fa-android"></i> Download APK</a>
-        <a href="https://renteasy-frontend-xi.vercel.app" class="btn btn-primary" target="_blank"><i class="fas fa-globe"></i> Use Web App (PWA)</a>
+        <a href="download-android.html" class="btn btn-primary"><i class="fab fa-android"></i> Download APK</a>
+        <a href="download-ios.html" class="btn btn-primary"><i class="fas fa-globe"></i> Use Web App (PWA)</a>
       </div>
 
       <!-- Installation Guide for Android APK -->
@@ -718,8 +718,8 @@
     <h2>Start renting smarter <span class="gradient-text">today</span></h2>
     <p style="margin-bottom: 2rem;">Get early access – be the first to know when we launch on play and app store.</p>
     <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem;">
-      <a href="#" class="btn btn-primary"><i class="fab fa-android"></i> Download APK</a>
-      <a href="#" class="btn btn-outline"><i class="fas fa-mobile-alt"></i> Use Web App (PWA)</a>
+      <a href="download-android.html" class="btn btn-primary"><i class="fab fa-android"></i> Download APK</a>
+      <a href="download-ios.html" class="btn btn-outline"><i class="fas fa-mobile-alt"></i> Use Web App (PWA)</a>
     </div>
     <div style="max-width: 500px; margin: 0 auto;">
       <h4 style="margin-bottom: 1rem;">Join the waitlist</h4>
@@ -772,15 +772,15 @@
 
     async function getLocation() {
       try {
-        const res = await fetch('https://ip-api.com/json/?fields=status,city,regionName,country,lat,lon');
+        const res = await fetch('https://ipwho.is/');
         const data = await res.json();
-        if (data.status === 'success') {
+        if (data.success) {
           return {
             city: data.city,
-            state: data.regionName,
+            state: data.region,
             country: data.country,
-            lat: data.lat,
-            lng: data.lon
+            lat: data.latitude,
+            lng: data.longitude
           };
         }
       } catch (e) {}
@@ -845,23 +845,6 @@
         }
       });
     }
-
-    // ========== Download Buttons ==========
-    document.addEventListener('DOMContentLoaded', () => {
-      const apkButtons = document.querySelectorAll('.btn-primary[download]');
-      apkButtons.forEach(btn => {
-        btn.addEventListener('click', function(e) {
-          e.preventDefault();
-          trackDownload('android_apk').then(() => {
-            window.location.href = btn.href;
-          });
-        });
-      });
-      const pwaButtons = document.querySelectorAll('.btn-primary[target="_blank"]');
-      pwaButtons.forEach(btn => {
-        btn.addEventListener('click', () => trackDownload('pwa'));
-      });
-    });
 
     // ========== Navbar, Dropdown, FAQ ==========
     document.addEventListener('DOMContentLoaded', function() {

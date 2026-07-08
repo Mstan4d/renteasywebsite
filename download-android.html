@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Download RentEasy for Android – Free APK Download</title>
+  <meta name="description" content="Download the RentEasy Android app, learn how to install it, sign up, and pick the role that fits you: Tenant, Moving Tenant, Landlord, Manager, Estate Firm, or Service Provider.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #0a0a0a; color: #fff; line-height: 1.5; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .navbar { padding: 1rem 0; background: rgba(10,10,10,0.95); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; }
+    .logo { font-size: 1.6rem; font-weight: 800; text-decoration: none; color: white; }
+    .logo span { color: #f5b042; }
+    .back-link { color: #ccc; text-decoration: none; }
+    .back-link:hover { color: #f5b042; }
+    .nav-right { display: flex; align-items: center; gap: 1.25rem; }
+    h1 { font-size: clamp(2rem, 4.5vw, 3rem); margin-bottom: 1rem; }
+    h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); margin: 0 0 1rem; }
+    .gradient-text { background: linear-gradient(135deg, #f5b042, #10b981); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.9rem 2.2rem; border-radius: 40px; font-weight: 700; text-decoration: none; transition: 0.2s; border: none; cursor: pointer; font-size: 1rem; font-family: inherit; }
+    .btn-primary { background: #10b981; color: #0a0a0a; }
+    .btn-primary:hover { background: #0d9668; transform: translateY(-2px); }
+    .btn-outline { border: 1px solid #10b981; color: #10b981; background: transparent; }
+    .btn-outline:hover { background: rgba(16,185,129,0.1); }
+    .btn-lg { padding: 1.1rem 2.8rem; font-size: 1.1rem; }
+    section { padding: 3.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .hero { text-align: center; padding: 3.5rem 0 3rem; }
+    .hero p.lead { font-size: 1.15rem; color: #bbb; max-width: 700px; margin: 1.2rem auto 2rem; }
+    .platform-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: #111; border: 1px solid #222; padding: 0.5rem 1.1rem; border-radius: 40px; color: #f5b042; font-weight: 600; font-size: 0.85rem; margin-bottom: 1.5rem; }
+    .meta-row { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 1.5rem; color: #888; font-size: 0.85rem; }
+    .meta-row span i { color: #10b981; margin-right: 0.35rem; }
+    .card { background: #111; border: 1px solid #222; border-radius: 24px; padding: 1.8rem; }
+    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.25rem; margin-top: 1.5rem; }
+    .step-card { background: #111; border: 1px solid #222; border-radius: 20px; padding: 1.5rem; }
+    .step-num { width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, #f5b042, #10b981); color: #0a0a0a; display: flex; align-items: center; justify-content: center; font-weight: 800; margin-bottom: 0.9rem; }
+    .warn-box { margin-top: 1.5rem; background: rgba(245,176,66,0.08); border: 1px solid rgba(245,176,66,0.3); border-radius: 14px; padding: 1rem 1.25rem; color: #f5b042; font-size: 0.9rem; }
+    .role-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+    .role-card { background: #111; border: 1px solid #222; border-radius: 22px; padding: 1.6rem; transition: 0.2s; display: flex; flex-direction: column; }
+    .role-card:hover { border-color: #f5b042; transform: translateY(-4px); }
+    .role-card i.role-icon { font-size: 1.8rem; color: #f5b042; margin-bottom: 0.8rem; }
+    .role-card h3 { margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .role-card p { color: #aaa; font-size: 0.92rem; flex-grow: 1; }
+    .role-card a { margin-top: 1rem; color: #10b981; text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+    .role-card a:hover { text-decoration: underline; }
+    .signup-form { max-width: 520px; margin: 1.5rem auto 0; display: flex; flex-direction: column; gap: 1rem; }
+    .signup-form input, .signup-form select { padding: 1rem 1.2rem; border-radius: 40px; border: 1px solid #222; background: #1e1e1e; color: white; font-family: inherit; font-size: 0.95rem; }
+    .signup-form input:focus, .signup-form select:focus { outline: none; border-color: #10b981; }
+    .final-cta { text-align: center; background: linear-gradient(145deg, #0f0f0f, #050505); border-radius: 28px; padding: 3rem 1.5rem; }
+    .footer { text-align: center; padding: 2.5rem 0; color: #888; }
+    .footer a { color: #10b981; text-decoration: none; }
+    .cross-link { text-align: center; margin-top: 1.5rem; font-size: 0.9rem; color: #999; }
+    .cross-link a { color: #f5b042; text-decoration: none; font-weight: 600; }
+    .cross-link a:hover { text-decoration: underline; }
+    @media (max-width: 640px) { .container { padding: 0 16px; } .btn-lg { width: 100%; justify-content: center; } }
+  </style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="container nav-container">
+    <a href="index.html" class="logo">Rent<span>Easy</span></a>
+    <div class="nav-right">
+      <a href="download-ios.html" class="back-link"><i class="fab fa-apple"></i> iPhone user?</a>
+      <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <div class="platform-badge"><i class="fab fa-android"></i> Android APK</div>
+      <h1>Download <span class="gradient-text">RentEasy</span> for Android</h1>
+      <p class="lead">Rent apartments, list properties, or manage a portfolio — no agent fees, no middlemen. Install the free RentEasy app in under a minute.</p>
+
+      <a href="apk/RentEasy.apk" id="mainDownloadBtn" class="btn btn-primary btn-lg" download>
+        <i class="fab fa-android"></i> Download APK Now
+      </a>
+
+      <div class="meta-row">
+        <span><i class="fas fa-shield-alt"></i> Safe & official source</span>
+        <span><i class="fas fa-sync"></i> Free updates</span>
+        <span><i class="fas fa-wifi-slash"></i> Works across Nigeria</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to install -->
+  <section>
+    <div class="container">
+      <h2><i class="fas fa-download" style="color:#f5b042;"></i> How to install the APK</h2>
+      <div class="steps-grid">
+        <div class="step-card"><div class="step-num">1</div><p><strong>Download</strong> the APK using the button above.</p></div>
+        <div class="step-card"><div class="step-num">2</div><p><strong>Open</strong> the downloaded file, usually found in your "Downloads" folder.</p></div>
+        <div class="step-card"><div class="step-num">3</div><p><strong>Allow "Install from unknown sources"</strong> if prompted (Settings → Security → Unknown sources).</p></div>
+        <div class="step-card"><div class="step-num">4</div><p><strong>Tap "Install"</strong> and wait a few seconds for it to finish.</p></div>
+        <div class="step-card"><div class="step-num">5</div><p><strong>Open RentEasy</strong> from your home screen and continue to sign up.</p></div>
+      </div>
+      <div class="warn-box">⚠️ You may see a "Play Protect" warning — tap <strong>Install anyway</strong>. It's safe; RentEasy is only distributed through this official website.</div>
+    </div>
+  </section>
+
+  <!-- How to sign up -->
+  <section>
+    <div class="container">
+      <h2><i class="fas fa-user-plus" style="color:#f5b042;"></i> How to sign up</h2>
+      <div class="steps-grid">
+        <div class="step-card"><div class="step-num">1</div><p>Open the app and tap <strong>Sign Up</strong>.</p></div>
+        <div class="step-card"><div class="step-num">2</div><p>Enter your phone number or email and verify the code sent to you.</p></div>
+        <div class="step-card"><div class="step-num">3</div><p>Choose the <strong>role</strong> that matches you — see what each one does below.</p></div>
+        <div class="step-card"><div class="step-num">4</div><p>Complete your profile (ID/KYC is required for Landlords, Managers, Estate Firms & Service Providers).</p></div>
+        <div class="step-card"><div class="step-num">5</div><p>Start browsing, listing, or managing — RentEasy takes it from here!</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Role explainer -->
+  <section>
+    <div class="container">
+      <h2><i class="fas fa-users" style="color:#f5b042;"></i> What each role does</h2>
+      <p style="color:#aaa; max-width: 700px;">Not sure which account type to sign up as? Here's a quick breakdown of every role on RentEasy.</p>
+      <div class="role-grid">
+        <div class="role-card">
+          <i class="fas fa-house-user role-icon"></i>
+          <h3>Tenant</h3>
+          <p>Find verified homes directly from landlords or managers. You pay a transparent 7.5% commission — no hidden agent markups.</p>
+          <a href="role-tenant.html">Learn more <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="role-card">
+          <i class="fas fa-box-open role-icon"></i>
+          <h3>Moving Tenant</h3>
+          <p>Moving out? List your vacating apartment and earn a 1.5% referral commission when it gets rented — no agent needed.</p>
+          <a href="role-moving-tenant.html">Learn more <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="role-card">
+          <i class="fas fa-building role-icon"></i>
+          <h3>Landlord</h3>
+          <p>List your property directly to thousands of verified tenants. Pay only 7.5% commission when it's rented — no upfront fees.</p>
+          <a href="role-landlord.html">Learn more <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="role-card">
+          <i class="fas fa-user-tie role-icon"></i>
+          <h3>Manager</h3>
+          <p>Become a verified local RentEasy manager. Inspect, verify and manage listings, and earn 2.5% commission per rental.</p>
+          <a href="role-manager.html">Learn more <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="role-card">
+          <i class="fas fa-city role-icon"></i>
+          <h3>Estate Firm</h3>
+          <p>A full property management system — landlords, units, tenants and rent collection in one place, with 0% commission when subscribed.</p>
+          <a href="role-estate-firm.html">Learn more <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="role-card">
+          <i class="fas fa-tools role-icon"></i>
+          <h3>Service Provider</h3>
+          <p>Plumbers, electricians, cleaners, movers, carpenters & more — join Nigeria's fastest-growing verified service marketplace.</p>
+          <a href="role-service-provider.html">Learn more <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick interest form -->
+  <section>
+    <div class="container" style="text-align:center;">
+      <h2>Tell us who you are</h2>
+      <p style="color:#aaa;">Leave your details and the role you're interested in — we'll keep you posted on new features for your role.</p>
+      <form id="roleInterestForm" class="signup-form">
+        <input type="text" id="interestName" placeholder="Your name (optional)">
+        <input type="email" id="interestEmail" placeholder="Your email address" required>
+        <select id="interestRole" required>
+          <option value="" disabled selected>I'm signing up as a...</option>
+          <option value="Tenant">Tenant</option>
+          <option value="Moving Tenant">Moving Tenant</option>
+          <option value="Landlord">Landlord</option>
+          <option value="Manager">Manager</option>
+          <option value="Estate Firm">Estate Firm</option>
+          <option value="Service Provider">Service Provider</option>
+          <option value="Not sure yet">Not sure yet</option>
+        </select>
+        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Notify me</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section style="border-bottom:none;">
+    <div class="container">
+      <div class="final-cta">
+        <h2>Ready to get started?</h2>
+        <p style="color:#aaa; margin-bottom: 2rem;">Download RentEasy for Android now — it only takes a minute.</p>
+        <a href="apk/RentEasy.apk" class="btn btn-primary btn-lg apk-download-btn" download>
+          <i class="fab fa-android"></i> Download APK Now
+        </a>
+        <div class="cross-link">Using an iPhone instead? <a href="download-ios.html">Get the RentEasy web app for iOS →</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <p>© 2026 RentEasy. All rights reserved.</p>
+    <p style="margin-top: 0.5rem; font-size: 0.85rem;"><a href="index.html">Home</a> · <a href="privacy-policy.html">Privacy Policy</a> · <a href="mailto:renteasyapartmentsearch@gmail.com">Contact Support</a></p>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<script>
+  (function() {
+    const SUPABASE_URL = 'https://uxkybljoxtxnsnsrblfu.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV4a3libGpveHR4bnNuc3JibGZ1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk4NTIxNDQsImV4cCI6MjA4NTQyODE0NH0.6PxDCYIMzmUwqxZlRzfSBC1v_1cgutSupUIzaD2E5EE';
+    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    // ===== Visitor tracking (same pattern as index.html) =====
+    let visitorId = sessionStorage.getItem('visitor_id');
+    if (!visitorId) {
+      visitorId = crypto.randomUUID ? crypto.randomUUID() : Date.now() + '-' + Math.random();
+      sessionStorage.setItem('visitor_id', visitorId);
+    }
+
+    async function getLocation() {
+      try {
+        const res = await fetch('https://ipwho.is/');
+        const data = await res.json();
+        if (data.success) {
+          return { city: data.city, state: data.region, country: data.country, lat: data.latitude, lng: data.longitude };
+        }
+      } catch (e) {}
+      return null;
+    }
+
+    async function trackPageView() {
+      const location = await getLocation();
+      const { error } = await supabase.from('website_visits').insert({
+        visitor_id: visitorId,
+        page_url: window.location.pathname,
+        referrer: document.referrer,
+        user_agent: navigator.userAgent,
+        city: location?.city || null,
+        state: location?.state || null,
+        country: location?.country || null,
+        lat: location?.lat || null,
+        lng: location?.lng || null
+      });
+      if (error) console.error('Page view insert error:', error);
+    }
+
+    // platform: 'android_apk' is the value SuperAdminWebsiteStats reads for the Android download counter
+    async function trackDownload(platform) {
+      const { error } = await supabase.from('app_downloads').insert({ platform, user_agent: navigator.userAgent });
+      if (error) console.error('Download insert error:', error);
+      else console.log('Download tracked:', platform);
+    }
+
+    trackPageView();
+
+    // ===== Main download button(s) — this is what Super Admin > Website Stats counts =====
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('a[download][href*="RentEasy.apk"]').forEach((btn) => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          trackDownload('android_apk').finally(() => { window.location.href = btn.href; });
+        });
+      });
+
+      // ===== Role interest form -> waitlist table =====
+      const form = document.getElementById('roleInterestForm');
+      if (form) {
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const email = document.getElementById('interestEmail').value.trim();
+          const name = document.getElementById('interestName').value.trim();
+          const role = document.getElementById('interestRole').value;
+          if (!email || !role) { alert('Please enter your email and select a role.'); return; }
+          const submitBtn = form.querySelector('button[type="submit"]');
+          const originalText = submitBtn.textContent;
+          submitBtn.textContent = 'Submitting...';
+          submitBtn.disabled = true;
+          try {
+            let { error } = await supabase.from('waitlist').insert([{ email, name: name || null, role }]);
+            if (error && /column|schema/i.test(error.message)) {
+              // Fallback if the 'role' column doesn't exist on the waitlist table yet
+              ({ error } = await supabase.from('waitlist').insert([{ email, name: name ? `${name} (${role})` : `(${role})` }]));
+            }
+            if (error) throw error;
+            alert('✅ Thanks! We\'ll keep you posted.');
+            form.reset();
+          } catch (err) {
+            console.error(err);
+            if (err.message && err.message.includes('duplicate')) alert('This email is already on our list.');
+            else alert('Something went wrong. Please try again.');
+          } finally {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+          }
+        });
+      }
+    });
+  })();
+</script>
+</body>
+</html>
